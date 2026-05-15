@@ -24,7 +24,7 @@ export function Button({
         {
           'bg-blue-600 text-white hover:bg-blue-700': variant === 'primary',
           'bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-100': variant === 'secondary',
-          'hover:bg-gray-100 dark:hover:bg-gray-800': variant === 'ghost',
+          'text-gray-700 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-800': variant === 'ghost',
           'bg-red-600 text-white hover:bg-red-700': variant === 'danger',
           'px-2.5 py-1.5 text-sm': size === 'sm',
           'px-4 py-2 text-sm': size === 'md',
