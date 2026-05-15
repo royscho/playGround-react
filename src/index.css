@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-surface: #ffffff;
+  --color-bg: #f3f4f6;
+}
+
+.dark {
+  --color-surface: #1f2937;
+  --color-bg: #111827;
+}
+
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+}
