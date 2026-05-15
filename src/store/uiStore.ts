@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { persist, devtools } from 'zustand/middleware'
 
 interface UiState {
   sidebarOpen: boolean
@@ -9,13 +9,16 @@ interface UiState {
 }
 
 export const useUiStore = create<UiState>()(
-  persist(
-    (set) => ({
-      sidebarOpen: true,
-      darkMode: false,
-      toggleSidebar: () => set(s => ({ sidebarOpen: !s.sidebarOpen })),
-      toggleDarkMode: () => set(s => ({ darkMode: !s.darkMode })),
-    }),
-    { name: 'ui-store' },
+  devtools(
+    persist(
+      (set) => ({
+        sidebarOpen: true,
+        darkMode: false,
+        toggleSidebar: () => set(s => ({ sidebarOpen: !s.sidebarOpen }), false, 'toggleSidebar'),
+        toggleDarkMode: () => set(s => ({ darkMode: !s.darkMode }), false, 'toggleDarkMode'),
+      }),
+      { name: 'ui-store' },
+    ),
+    { name: 'UI Store' },
   ),
 )
