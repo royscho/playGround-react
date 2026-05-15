@@ -27,7 +27,7 @@ describe('Table', () => {
   })
 
   it('shows empty state when no data', () => {
-    render(<Table columns={columns} data={[]} keyExtractor={r => r.id} emptyMessage="No results" />)
+    render(<Table columns={columns} data={[] as Row[]} keyExtractor={r => r.id} emptyMessage="No results" />)
     expect(screen.getByText('No results')).toBeInTheDocument()
   })
 })
