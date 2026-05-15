@@ -14,12 +14,16 @@ type FormValues = z.infer<typeof schema>
 
 export function LoginForm() {
   const { mutate: login, isPending, error } = useLogin()
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
     resolver: zodResolver(schema),
   })
 
   return (
-    <form onSubmit={handleSubmit(data => login(data))} className="space-y-4">
+    <form onSubmit={handleSubmit((data) => login(data))} className="space-y-4">
       <Input
         id="email"
         label="Email"
@@ -40,9 +44,7 @@ export function LoginForm() {
       <Button type="submit" loading={isPending} className="w-full">
         Sign in
       </Button>
-      <p className="text-center text-xs text-gray-500">
-        Demo: admin@example.com / password
-      </p>
+      <p className="text-center text-xs text-gray-500">Demo: admin@example.com / password</p>
     </form>
   )
 }

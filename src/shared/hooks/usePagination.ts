@@ -13,8 +13,8 @@ export function usePagination({ total, pageSize }: UsePaginationOptions) {
     page,
     totalPages,
     pageSize,
-    nextPage: () => setPage(p => Math.min(p + 1, totalPages)),
-    prevPage: () => setPage(p => Math.max(p - 1, 1)),
+    nextPage: () => setPage((p) => Math.min(p + 1, totalPages)),
+    prevPage: () => setPage((p) => Math.max(p - 1, 1)),
     goToPage: (n: number) => setPage(Math.max(1, Math.min(n, totalPages))),
     reset: () => setPage(1),
   }

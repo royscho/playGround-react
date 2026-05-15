@@ -6,7 +6,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { LoginForm } from '../components/LoginForm'
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (
-  <QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false }, mutations: { retry: false } } })}>
+  <QueryClientProvider
+    client={
+      new QueryClient({
+        defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+      })
+    }
+  >
     <MemoryRouter>{children}</MemoryRouter>
   </QueryClientProvider>
 )
@@ -31,8 +37,11 @@ describe('LoginForm', () => {
     await userEvent.type(screen.getByLabelText(/email/i), 'admin@example.com')
     await userEvent.type(screen.getByLabelText(/password/i), 'password')
     await userEvent.click(screen.getByRole('button', { name: /sign in/i }))
-    await waitFor(() => {
-      expect(screen.queryByText(/invalid credentials/i)).not.toBeInTheDocument()
-    }, { timeout: 3000 })
+    await waitFor(
+      () => {
+        expect(screen.queryByText(/invalid credentials/i)).not.toBeInTheDocument()
+      },
+      { timeout: 3000 }
+    )
   })
 })

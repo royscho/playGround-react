@@ -16,7 +16,9 @@ export function TopBar() {
           {darkMode ? '☀️' : '🌙'}
         </Button>
         <span className="text-sm text-gray-700 dark:text-gray-300">{user?.name}</span>
-        <Button variant="secondary" size="sm" onClick={logout}>Logout</Button>
+        <Button variant="secondary" size="sm" onClick={logout}>
+          Logout
+        </Button>
       </div>
     </header>
   )

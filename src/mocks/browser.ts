@@ -8,5 +8,5 @@ export const worker = setupWorker(
   ...authHandlers,
   ...usersHandlers,
   ...analyticsHandlers,
-  ...settingsHandlers,
+  ...settingsHandlers
 )

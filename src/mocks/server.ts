@@ -8,5 +8,5 @@ export const server = setupServer(
   ...authHandlers,
   ...usersHandlers,
   ...analyticsHandlers,
-  ...settingsHandlers,
+  ...settingsHandlers
 )

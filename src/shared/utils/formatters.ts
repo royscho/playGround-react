@@ -7,7 +7,11 @@ export function formatNumber(value: number): string {
 }
 
 export function formatDate(isoString: string): string {
-  return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(isoString))
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(new Date(isoString))
 }
 
 export function formatPercent(value: number): string {

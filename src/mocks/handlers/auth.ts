@@ -3,7 +3,7 @@ import { http, HttpResponse, delay } from 'msw'
 export const authHandlers = [
   http.post('/api/auth/login', async ({ request }) => {
     await delay(400)
-    const { email, password } = await request.json() as { email: string; password: string }
+    const { email, password } = (await request.json()) as { email: string; password: string }
     if (email === 'admin@example.com' && password === 'password') {
       return HttpResponse.json({
         data: { id: '1', name: 'Admin User', email, role: 'admin' },

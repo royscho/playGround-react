@@ -17,7 +17,10 @@ describe('usePagination', () => {
 
   it('does not exceed totalPages', () => {
     const { result } = renderHook(() => usePagination({ total: 20, pageSize: 10 }))
-    act(() => { result.current.nextPage(); result.current.nextPage() })
+    act(() => {
+      result.current.nextPage()
+      result.current.nextPage()
+    })
     expect(result.current.page).toBe(2)
   })
 

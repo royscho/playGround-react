@@ -2,7 +2,7 @@ export class ApiError extends Error {
   constructor(
     message: string,
     public status: number,
-    public data?: unknown,
+    public data?: unknown
   ) {
     super(message)
     this.name = 'ApiError'
@@ -30,7 +30,11 @@ async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
 
   if (!res.ok) {
     let data: unknown
-    try { data = await res.json() } catch { data = null }
+    try {
+      data = await res.json()
+    } catch {
+      data = null
+    }
     const message = (data as { message?: string })?.message ?? res.statusText
     throw new ApiError(message, res.status, data)
   }
@@ -40,7 +44,9 @@ async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
 
 export const apiClient = {
   get: <T>(url: string) => request<T>(url),
-  post: <T>(url: string, body: unknown) => request<T>(url, { method: 'POST', body: JSON.stringify(body) }),
-  put: <T>(url: string, body: unknown) => request<T>(url, { method: 'PUT', body: JSON.stringify(body) }),
+  post: <T>(url: string, body: unknown) =>
+    request<T>(url, { method: 'POST', body: JSON.stringify(body) }),
+  put: <T>(url: string, body: unknown) =>
+    request<T>(url, { method: 'PUT', body: JSON.stringify(body) }),
   delete: <T>(url: string) => request<T>(url, { method: 'DELETE' }),
 }

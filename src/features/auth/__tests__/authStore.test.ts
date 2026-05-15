@@ -21,10 +21,9 @@ describe('authStore', () => {
   })
 
   it('logout clears state', () => {
-    useAuthStore.getState().setAuth(
-      { id: '1', name: 'Alice', email: 'alice@example.com', role: 'admin' },
-      'token',
-    )
+    useAuthStore
+      .getState()
+      .setAuth({ id: '1', name: 'Alice', email: 'alice@example.com', role: 'admin' }, 'token')
     useAuthStore.getState().logout()
     expect(useAuthStore.getState().isAuthenticated).toBe(false)
     expect(useAuthStore.getState().user).toBeNull()

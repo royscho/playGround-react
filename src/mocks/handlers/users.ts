@@ -10,8 +10,8 @@ export const usersHandlers = [
     const search = url.searchParams.get('search') ?? ''
 
     const filtered = search
-      ? mockUsers.filter(u =>
-          u.name.toLowerCase().includes(search.toLowerCase()) || u.email.includes(search),
+      ? mockUsers.filter(
+          (u) => u.name.toLowerCase().includes(search.toLowerCase()) || u.email.includes(search)
         )
       : mockUsers
 
