@@ -55,7 +55,10 @@ export function Table<T>({
           {data.map((row) => (
             <tr key={keyExtractor(row)} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
               {columns.map((col) => (
-                <td key={String(col.key)} className={`px-4 py-3 ${col.className ?? ''}`}>
+                <td
+                  key={String(col.key)}
+                  className={`px-4 py-3 ${col.className ?? ''} dark:text-gray-300`}
+                >
                   {col.render ? col.render(row[col.key], row) : String(row[col.key])}
                 </td>
               ))}

@@ -33,7 +33,9 @@ export default function UsersPage() {
       key: 'role' as const,
       header: 'Role',
       render: (_value: string, row: User) => (
-        <Badge variant={row.role === 'admin' ? 'info' : row.role === 'editor' ? 'success' : 'default'}>
+        <Badge
+          variant={row.role === 'admin' ? 'info' : row.role === 'editor' ? 'success' : 'default'}
+        >
           {row.role}
         </Badge>
       ),
@@ -66,7 +68,7 @@ export default function UsersPage() {
               setPage(1)
             })
           }}
-          className="w-64"
+          className="w-64 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
         />
 
         <select
