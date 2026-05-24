@@ -1,5 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { apiClient } from '../../../shared/utils/apiClient'
 
 export interface ProfileData {
@@ -16,25 +15,26 @@ interface UseSettingsOptions {
 
 export function useSettings({ onSuccess }: UseSettingsOptions = {}) {
   const queryClient = useQueryClient()
-  const [profile, setProfile] = useState<ProfileData | null>(null)
+
+  const query = useQuery({
+    queryKey: QUERY_KEY,
+    queryFn: () => apiClient.get<ProfileData>('/api/settings'),
+  })
 
   const mutation = useMutation({
     mutationFn: (data: ProfileData) =>
       apiClient.put<{ data: ProfileData; message: string }>('/api/settings', data),
 
-    onMutate: (data) => {
-      // optimistic update — apply immediately
-      setProfile(data)
+    onMutate: async (data) => {
+      await queryClient.cancelQueries({ queryKey: QUERY_KEY })
       const previous = queryClient.getQueryData<ProfileData>(QUERY_KEY)
       queryClient.setQueryData(QUERY_KEY, data)
       return { previous }
     },
 
     onError: (_err, _data, context) => {
-      // rollback on failure
       if (context?.previous !== undefined) {
         queryClient.setQueryData(QUERY_KEY, context.previous)
-        setProfile(context.previous ?? null)
       }
     },
 
@@ -45,7 +45,8 @@ export function useSettings({ onSuccess }: UseSettingsOptions = {}) {
   })
 
   return {
-    profile,
+    profile: query.data,
+    isLoading: query.isLoading,
     updateProfile: mutation.mutate,
     isPending: mutation.isPending,
     isError: mutation.isError,

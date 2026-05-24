@@ -1,24 +1,17 @@
 import { useState } from 'react'
 import { useSettings } from '../hooks/useSettings'
 import { ProfileForm } from './ProfileForm'
-import { useAuthStore } from '../../auth/store/authStore'
+import { Skeleton } from '../../../shared/components/Skeleton'
 
 export default function SettingsPage() {
-  const { user } = useAuthStore()
   const [saved, setSaved] = useState(false)
 
-  const { updateProfile, isPending, isError } = useSettings({
+  const { profile, isLoading, updateProfile, isPending, isError } = useSettings({
     onSuccess: () => {
       setSaved(true)
       setTimeout(() => setSaved(false), 3000)
     },
   })
-
-  const defaultValues = {
-    name: user?.name ?? '',
-    email: user?.email ?? '',
-    bio: '',
-  }
 
   return (
     <div className="p-6">
@@ -34,12 +27,16 @@ export default function SettingsPage() {
             </div>
           )}
 
-          <ProfileForm
-            defaultValues={defaultValues}
-            onSubmit={updateProfile}
-            isPending={isPending}
-            isError={isError}
-          />
+          {isLoading ? (
+            <Skeleton lines={4} className="h-8" />
+          ) : (
+            <ProfileForm
+              defaultValues={profile}
+              onSubmit={updateProfile}
+              isPending={isPending}
+              isError={isError}
+            />
+          )}
         </div>
       </div>
     </div>
