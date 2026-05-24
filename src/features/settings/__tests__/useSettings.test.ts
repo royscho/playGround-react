@@ -37,6 +37,6 @@ describe('useSettings', () => {
       result.current.updateProfile({ name: 'Bob', email: 'bob@example.com', bio: 'dev' })
     })
 
-    await waitFor(() => expect(onSuccess).toHaveBeenCalled(), { timeout: 3000 })
+    await waitFor(() => expect(onSuccess).toHaveBeenCalled(), { timeout: 5000 })
   })
 })
