@@ -205,3 +205,214 @@ Hints to the browser to promote an element to its own GPU layer for smoother ani
 
 **Q: BEM naming?**  
 Block__Element--Modifier. `.card__title--highlighted`. Less relevant with Tailwind but appears in legacy codebases.
+
+---
+
+## Pseudo-classes & Pseudo-elements
+
+```css
+/* pseudo-classes — state */
+a:hover   { }        /* mouse over */
+a:focus   { }        /* keyboard focus */
+li:first-child { }   /* first sibling */
+li:last-child  { }
+li:nth-child(2n) { } /* every even item */
+input:disabled { }
+input:checked  { }
+input:invalid  { }
+
+/* pseudo-elements — virtual elements */
+p::before { content: '→ '; }   /* insert before content */
+p::after  { content: ' ←'; }   /* insert after content */
+p::first-line { }
+input::placeholder { color: gray; }
+```
+
+**Tailwind:**
+```html
+<a class="hover:text-blue-600 focus:ring-2">
+<li class="odd:bg-gray-50 even:bg-white">
+<input class="disabled:opacity-50 invalid:border-red-500">
+```
+
+---
+
+## Transitions
+
+Smooth property change over time:
+
+```css
+.btn {
+  background: blue;
+  transition: background 200ms ease, transform 150ms ease;
+}
+.btn:hover {
+  background: darkblue;
+  transform: scale(1.02);
+}
+```
+
+`transition: property duration timing-function delay`
+
+Common timing functions: `ease` (default), `linear`, `ease-in`, `ease-out`, `ease-in-out`.
+
+**Tailwind:**
+```html
+<button class="transition-colors duration-200 hover:bg-blue-700">
+<div class="transition-transform duration-150 hover:scale-105">
+```
+
+---
+
+## Stacking Context
+
+`z-index` only works within the same stacking context. A new context is created by:
+- `position` + `z-index` (not `auto`)
+- `opacity` < 1
+- `transform`, `filter`, `will-change`
+- `isolation: isolate`
+
+**Common bug:** modal has `z-index: 9999` but still appears behind a sidebar — because the sidebar's parent created a stacking context with `transform`.
+
+**Fix:**
+```css
+.modal-wrapper { isolation: isolate; } /* creates own context */
+```
+
+**Tailwind:** `isolate` class.
+
+---
+
+## Overflow & Scrolling
+
+```css
+overflow: visible | hidden | scroll | auto;
+overflow-x: hidden;   /* clip horizontal only */
+overflow-y: auto;     /* scroll vertical only when needed */
+
+/* smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* custom scrollbar (webkit) */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #888; border-radius: 3px; }
+```
+
+**Tailwind:** `overflow-hidden`, `overflow-y-auto`, `overflow-x-scroll`.
+
+---
+
+## The Cascade
+
+Three factors decide which rule wins (in order):
+
+1. **Origin** — browser default < author stylesheet < inline style
+2. **Specificity** — calculated score: `(IDs, classes, elements)`
+   - `#nav .link a` → (1, 1, 1)
+   - `.btn.active` → (0, 2, 0) ← wins over above? No — compare left to right
+3. **Order** — later rule wins when specificity is equal
+
+```css
+/* specificity: 0,1,0 */
+.red { color: red; }
+
+/* specificity: 0,1,0 — same, but declared later → wins */
+.blue { color: blue; }
+```
+
+---
+
+## CSS Performance
+
+**Expensive to animate** (triggers layout → paint → composite):
+- `width`, `height`, `margin`, `padding`, `top`, `left`
+
+**Cheap to animate** (composite only — GPU handles it):
+- `transform: translate/scale/rotate`
+- `opacity`
+
+**Rule:** always prefer `transform` over `top/left` for movement.
+
+```css
+/* BAD — causes layout recalc every frame */
+.moving { transition: left 300ms; }
+
+/* GOOD — GPU composited */
+.moving { transition: transform 300ms; }
+```
+
+**`will-change`:** promotes element to GPU layer before animation starts:
+```css
+.card:hover { will-change: transform; }  /* prep on hover */
+.card { transition: transform 200ms; }
+```
+
+---
+
+## Modern CSS (2024+)
+
+**Container queries** — style based on parent size, not viewport:
+```css
+.card-wrapper { container-type: inline-size; }
+
+@container (min-width: 400px) {
+  .card { flex-direction: row; }
+}
+```
+
+**`:has()` selector** — "parent" selector:
+```css
+/* form that contains an invalid input */
+form:has(input:invalid) { border-color: red; }
+
+/* li that contains a checked checkbox */
+li:has(input:checked) { background: lightblue; }
+```
+
+**Logical properties** — direction-agnostic (RTL/LTR support):
+```css
+/* instead of margin-left */
+margin-inline-start: 1rem;
+
+/* instead of padding-top + padding-bottom */
+padding-block: 0.5rem;
+```
+
+**CSS nesting** (now native, no preprocessor needed):
+```css
+.button {
+  background: blue;
+
+  &:hover { background: darkblue; }
+  &.active { font-weight: bold; }
+}
+```
+
+---
+
+## Tailwind Patterns Used in This Project
+
+```html
+<!-- card pattern -->
+<div class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm
+            dark:border-gray-700 dark:bg-gray-800">
+
+<!-- responsive grid -->
+<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+
+<!-- centered page with max width -->
+<div class="mx-auto max-w-lg p-6">
+
+<!-- flex toolbar -->
+<div class="flex items-center justify-between gap-3">
+
+<!-- truncate long text -->
+<p class="truncate">Very long text that gets cut off...</p>
+
+<!-- visually hidden but accessible -->
+<span class="sr-only">Screen reader only text</span>
+
+<!-- aspect ratio -->
+<div class="aspect-video">  <!-- 16:9 -->
+<div class="aspect-square"> <!-- 1:1 -->
+```
