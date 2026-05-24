@@ -6,7 +6,7 @@ import { Skeleton } from '../shared/components/Skeleton'
 import { ErrorBoundary } from '../shared/components/ErrorBoundary'
 
 const LoginPage = lazy(() => import('../features/auth/components/LoginPage'))
-const DashboardPage = lazy(() => import('../features/analytics/components/AnalyticsPage'))
+const DashboardPage = lazy(() => import('../features/dashboard/components/DashboardPage'))
 const UsersPage = lazy(() => import('../features/users/components/UsersPage'))
 const AnalyticsPage = lazy(() => import('../features/analytics/components/AnalyticsPage'))
 const SettingsPage = lazy(() => import('../features/settings/components/SettingsPage'))
