@@ -15,7 +15,7 @@ const PageLoader = () => <Skeleton lines={4} className="h-8" />
 
 export function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route
           path="/login"
