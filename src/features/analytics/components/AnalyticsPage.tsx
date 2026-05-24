@@ -31,14 +31,20 @@ export default function AnalyticsPage() {
           variant="secondary"
           size="sm"
           loading={isPending}
-          onClick={() => startTransition(() => { refetch() })}
+          onClick={() =>
+            startTransition(() => {
+              refetch()
+            })
+          }
         >
           Refresh
         </Button>
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {data?.kpis.map((kpi) => <KpiCard key={kpi.label} metric={kpi} />)}
+        {data?.kpis.map((kpi) => (
+          <KpiCard key={kpi.label} metric={kpi} />
+        ))}
       </div>
 
       {data?.data && <RevenueChart data={data.data} />}
