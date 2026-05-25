@@ -25,7 +25,10 @@ export default function DashboardPage() {
 
       <p className="text-sm text-gray-500 dark:text-gray-400">
         Full charts available in{' '}
-        <a href="/analytics" className="text-blue-600 hover:underline dark:text-blue-400">
+        <a
+          href="/playGround-react/analytics"
+          className="text-blue-600 hover:underline dark:text-blue-400"
+        >
           Analytics
         </a>
       </p>
