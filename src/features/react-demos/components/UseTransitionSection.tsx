@@ -8,9 +8,12 @@ type Mode = 'normal' | 'transition'
 
 // Simulates an expensive component render (for demo purposes only).
 // Each item takes ~0.3ms — 100 items = ~30ms total, enough to feel as lag.
+// eslint-disable-next-line react-hooks/purity
 function SlowItem({ text }: { text: string }) {
+  // eslint-disable-next-line react-hooks/purity
   const start = performance.now()
-  while (performance.now() - start < 0.3) {}
+  // eslint-disable-next-line react-hooks/purity, no-empty
+  while (performance.now() - start < 0.3) { /* artificial slow render */ }
   return (
     <div className="border-b border-gray-100 px-3 py-1 text-sm dark:border-gray-800 dark:text-gray-300">
       {text}
