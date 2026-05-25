@@ -51,6 +51,7 @@ function Trigger({ children }: { children: ReactNode }) {
   const { id } = useItemContext()
   return (
     <button
+      type="button"
       className="flex w-full items-center justify-between py-3 text-left text-sm font-medium text-gray-900 dark:text-white"
       onClick={() => toggle(id)}
       aria-expanded={openId === id}
