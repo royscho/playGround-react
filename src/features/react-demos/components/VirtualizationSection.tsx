@@ -27,6 +27,7 @@ function NaiveList() {
 function VirtualList() {
   const parentRef = useRef<HTMLDivElement>(null)
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const virtualizer = useVirtualizer({
     count: VIRTUAL_ITEMS.length,
     getScrollElement: () => parentRef.current,
