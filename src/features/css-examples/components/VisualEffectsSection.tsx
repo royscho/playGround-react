@@ -19,6 +19,7 @@ export function VisualEffectsSection() {
         }
         .ve-shadow {
           background: white;
+          color: #111;
           border-radius: 8px;
           padding: 32px 24px;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -28,12 +29,33 @@ export function VisualEffectsSection() {
         .ve-shadow:hover {
           box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
         }
-        .ve-filter {
-          background: #f59e0b;
+        .dark .ve-shadow {
+          background: #1e293b;
+          color: #f1f5f9;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        .dark .ve-shadow:hover {
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+        }
+        .ve-filter-wrap {
           border-radius: 8px;
-          padding: 32px 24px;
-          filter: saturate(2) hue-rotate(20deg);
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+        .ve-filter-before {
+          background: #f59e0b;
+          padding: 20px 24px;
           text-align: center;
+          font-size: 11px;
+        }
+        .ve-filter-after {
+          background: #f59e0b;
+          filter: saturate(2) hue-rotate(20deg);
+          padding: 20px 24px;
+          text-align: center;
+          font-size: 11px;
         }
       `}</style>
 
@@ -54,8 +76,13 @@ export function VisualEffectsSection() {
         <div className="ve-shadow" data-testid="shadow-demo">
           <code className="text-xs">box-shadow + :hover</code>
         </div>
-        <div className="ve-filter" data-testid="filter-demo">
-          <code className="text-xs">filter: saturate + hue-rotate</code>
+        <div className="ve-filter-wrap" data-testid="filter-demo">
+          <div className="ve-filter-before">
+            <code>before</code>
+          </div>
+          <div className="ve-filter-after">
+            <code>saturate(2) hue-rotate(20deg)</code>
+          </div>
         </div>
       </div>
     </section>

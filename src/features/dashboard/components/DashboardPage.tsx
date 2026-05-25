@@ -17,7 +17,9 @@ export default function DashboardPage() {
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {data?.kpis.map((kpi) => <KpiCard key={kpi.label} metric={kpi} />)}
+          {data?.kpis.map((kpi) => (
+            <KpiCard key={kpi.label} metric={kpi} />
+          ))}
         </div>
       )}
 
