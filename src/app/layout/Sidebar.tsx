@@ -6,6 +6,7 @@ const navItems = [
   { to: '/users', label: 'Users', icon: '👥' },
   { to: '/analytics', label: 'Analytics', icon: '📈' },
   { to: '/settings', label: 'Settings', icon: '⚙️' },
+  { to: '/css-examples', label: 'CSS Examples', icon: '🎨' },
 ]
 
 interface SidebarProps {

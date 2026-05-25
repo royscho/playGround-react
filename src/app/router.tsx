@@ -10,6 +10,7 @@ const DashboardPage = lazy(() => import('../features/dashboard/components/Dashbo
 const UsersPage = lazy(() => import('../features/users/components/UsersPage'))
 const AnalyticsPage = lazy(() => import('../features/analytics/components/AnalyticsPage'))
 const SettingsPage = lazy(() => import('../features/settings/components/SettingsPage'))
+const CssExamplesPage = lazy(() => import('../features/css-examples/components/CssExamplesPage'))
 
 const PageLoader = () => <Skeleton lines={4} className="h-8" />
 
@@ -63,6 +64,16 @@ export function AppRouter() {
                 <ErrorBoundary>
                   <Suspense fallback={<PageLoader />}>
                     <SettingsPage />
+                  </Suspense>
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="/css-examples"
+              element={
+                <ErrorBoundary>
+                  <Suspense fallback={<PageLoader />}>
+                    <CssExamplesPage />
                   </Suspense>
                 </ErrorBoundary>
               }
