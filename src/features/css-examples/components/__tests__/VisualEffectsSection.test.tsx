@@ -14,6 +14,11 @@ describe('VisualEffectsSection', () => {
     expect(screen.getByTestId('gradient-demo')).toBeInTheDocument()
   })
 
+  it('renders radius demo', () => {
+    render(<VisualEffectsSection />)
+    expect(screen.getByTestId('radius-demo')).toBeInTheDocument()
+  })
+
   it('renders shadow demo', () => {
     render(<VisualEffectsSection />)
     expect(screen.getByTestId('shadow-demo')).toBeInTheDocument()
