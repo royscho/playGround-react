@@ -14,6 +14,7 @@ const CssExamplesPage = lazy(() => import('../features/css-examples/components/C
 const ReactDemosPage = lazy(() => import('../features/react-demos/components/ReactDemosPage'))
 const ChatPage = lazy(() => import('../features/chat/components/ChatPage'))
 const PerformancePage = lazy(() => import('../features/performance/components/PerformancePage'))
+const AccessibilityPage = lazy(() => import('../features/accessibility/components/AccessibilityPage'))
 
 const PageLoader = () => <Skeleton lines={4} className="h-8" />
 
@@ -107,6 +108,16 @@ export function AppRouter() {
                 <ErrorBoundary>
                   <Suspense fallback={<PageLoader />}>
                     <PerformancePage />
+                  </Suspense>
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="/accessibility"
+              element={
+                <ErrorBoundary>
+                  <Suspense fallback={<PageLoader />}>
+                    <AccessibilityPage />
                   </Suspense>
                 </ErrorBoundary>
               }
