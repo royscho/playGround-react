@@ -18,18 +18,17 @@ export interface FrameLog {
 
 export type ConnectionStatus = 'connecting' | 'connected' | 'disconnected'
 
-let msgCounter = 0
-let frameCounter = 0
-
-function makeId() { return String(++msgCounter) }
-function makeFrameId() { return String(++frameCounter) }
-
 export function useChat() {
   const [messages, setMessages] = useState<Message[]>([])
   const [frames, setFrames] = useState<FrameLog[]>([])
   const [status, setStatus] = useState<ConnectionStatus>('connecting')
   const [inputValue, setInputValue] = useState('')
   const wsRef = useRef<FakeWebSocket | null>(null)
+  const msgCounterRef = useRef(0)
+  const frameCounterRef = useRef(0)
+
+  const makeId = () => String(++msgCounterRef.current)
+  const makeFrameId = () => String(++frameCounterRef.current)
 
   const connect = useCallback(() => {
     const ws = new FakeWebSocket('ws://localhost:8080/chat')
