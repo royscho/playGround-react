@@ -33,7 +33,6 @@ export function useChat() {
   const connect = useCallback(() => {
     const ws = new FakeWebSocket('ws://localhost:8080/chat')
     wsRef.current = ws
-    setStatus('connecting')
 
     ws.onopen = () => setStatus('connected')
 
@@ -83,6 +82,7 @@ export function useChat() {
     wsRef.current?.close()
     setMessages([])
     setFrames([])
+    setStatus('connecting')
     connect()
   }, [connect])
 

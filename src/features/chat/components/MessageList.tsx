@@ -10,7 +10,7 @@ export function MessageList({ messages }: Props) {
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
+  }, [messages.length])
 
   return (
     <div

@@ -1,9 +1,11 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect, vi, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { MessageList } from '../MessageList'
 import type { Message } from '../../hooks/useChat'
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn()
+
+afterEach(() => vi.clearAllMocks())
 
 const userMsg: Message = { id: '1', text: 'Hello', sender: 'user', timestamp: new Date() }
 const botMsg: Message = { id: '2', text: 'Got it!', sender: 'bot', timestamp: new Date() }
@@ -33,5 +35,11 @@ describe('MessageList', () => {
     render(<MessageList messages={[userMsg, botMsg]} />)
     expect(screen.getByText('Hello')).toBeInTheDocument()
     expect(screen.getByText('Got it!')).toBeInTheDocument()
+  })
+
+  it('calls scrollIntoView when message added', () => {
+    const { rerender } = render(<MessageList messages={[]} />)
+    rerender(<MessageList messages={[userMsg]} />)
+    expect(window.HTMLElement.prototype.scrollIntoView).toHaveBeenCalled()
   })
 })
