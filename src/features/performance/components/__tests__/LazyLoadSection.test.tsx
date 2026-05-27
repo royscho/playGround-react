@@ -37,7 +37,7 @@ describe('LazyLoadSection', () => {
     const card = screen.getByTestId('lazy-card-0')
     act(() => {
       intersectCallback(
-        [{ target: card, isIntersecting: true } as IntersectionObserverEntry],
+        [{ target: card, isIntersecting: true } as unknown as IntersectionObserverEntry],
         {} as IntersectionObserver
       )
     })
@@ -49,7 +49,7 @@ describe('LazyLoadSection', () => {
     const card = screen.getByTestId('lazy-card-0')
     act(() => {
       intersectCallback(
-        [{ target: card, isIntersecting: true } as IntersectionObserverEntry],
+        [{ target: card, isIntersecting: true } as unknown as IntersectionObserverEntry],
         {} as IntersectionObserver
       )
     })
@@ -61,7 +61,7 @@ describe('LazyLoadSection', () => {
     const card = screen.getByTestId('lazy-card-0')
     act(() => {
       intersectCallback(
-        [{ target: card, isIntersecting: false } as IntersectionObserverEntry],
+        [{ target: card, isIntersecting: false } as unknown as IntersectionObserverEntry],
         {} as IntersectionObserver
       )
     })
