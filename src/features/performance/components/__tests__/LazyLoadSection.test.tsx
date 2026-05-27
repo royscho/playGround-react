@@ -13,7 +13,7 @@ beforeEach(() => {
     unobserve = vi.fn()
     disconnect = vi.fn()
   }
-  vi.stubGlobal('IntersectionObserver', MockIntersectionObserver as any)
+  vi.stubGlobal('IntersectionObserver', MockIntersectionObserver as unknown as typeof IntersectionObserver)
 })
 
 describe('LazyLoadSection', () => {
