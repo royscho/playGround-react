@@ -46,4 +46,14 @@ describe('useFocusTrap', () => {
     fireEvent.keyDown(screen.getByTestId('btn-1').parentElement!, { key: 'Escape' })
     expect(screen.getByTestId('btn-1')).toHaveFocus()
   })
+
+  it('stops trapping focus when isOpen becomes false', () => {
+    const { rerender } = render(<TestTrap isOpen={true} />)
+    rerender(<TestTrap isOpen={false} />)
+    // After closing, Tab on the container should not wrap focus
+    screen.getByTestId('btn-3').focus()
+    fireEvent.keyDown(screen.getByTestId('btn-3').parentElement!, { key: 'Tab', shiftKey: false })
+    // Focus should NOT have wrapped to btn-1 (listener removed)
+    expect(screen.getByTestId('btn-1')).not.toHaveFocus()
+  })
 })
