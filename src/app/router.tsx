@@ -12,6 +12,7 @@ const AnalyticsPage = lazy(() => import('../features/analytics/components/Analyt
 const SettingsPage = lazy(() => import('../features/settings/components/SettingsPage'))
 const CssExamplesPage = lazy(() => import('../features/css-examples/components/CssExamplesPage'))
 const ReactDemosPage = lazy(() => import('../features/react-demos/components/ReactDemosPage'))
+const ChatPage = lazy(() => import('../features/chat/components/ChatPage'))
 
 const PageLoader = () => <Skeleton lines={4} className="h-8" />
 
@@ -85,6 +86,16 @@ export function AppRouter() {
                 <ErrorBoundary>
                   <Suspense fallback={<PageLoader />}>
                     <ReactDemosPage />
+                  </Suspense>
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="/chat"
+              element={
+                <ErrorBoundary>
+                  <Suspense fallback={<PageLoader />}>
+                    <ChatPage />
                   </Suspense>
                 </ErrorBoundary>
               }

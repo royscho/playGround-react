@@ -8,6 +8,7 @@ const navItems = [
   { to: '/settings', label: 'Settings', icon: '⚙️' },
   { to: '/css-examples', label: 'CSS Examples', icon: '🎨' },
   { to: '/react-demos', label: 'React Demos', icon: '⚛️' },
+  { to: '/chat', label: 'Chat Demo', icon: '💬' },
 ]
 
 interface SidebarProps {

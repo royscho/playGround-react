@@ -1,7 +1,14 @@
+import type { ConnectionStatus as StatusType } from '../hooks/useChat'
 import { useChat } from '../hooks/useChat'
 import { ConnectionStatus } from './ConnectionStatus'
 import { MessageList } from './MessageList'
 import { ProtocolPanel } from './ProtocolPanel'
+
+const STATUS_TO_READY_STATE: Record<StatusType, number> = {
+  connecting: 0,
+  connected: 1,
+  disconnected: 3,
+}
 
 export default function ChatPage() {
   const { messages, frames, status, inputValue, setInputValue, send, reconnect } = useChat()
@@ -22,7 +29,7 @@ export default function ChatPage() {
         <div className="flex flex-1 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3 dark:border-gray-700">
-            <ConnectionStatus status={status} readyState={status === 'connecting' ? 0 : status === 'connected' ? 1 : 3} />
+            <ConnectionStatus status={status} readyState={STATUS_TO_READY_STATE[status]} />
             <button
               type="button"
               onClick={reconnect}
