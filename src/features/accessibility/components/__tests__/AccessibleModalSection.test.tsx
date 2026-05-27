@@ -52,4 +52,27 @@ describe('AccessibleModalSection', () => {
     await userEvent.click(screen.getByTestId('modal-cancel'))
     expect(screen.queryByTestId('modal')).not.toBeInTheDocument()
   })
+
+  it('Confirm button closes modal', async () => {
+    render(<AccessibleModalSection />)
+    await userEvent.click(screen.getByTestId('modal-trigger'))
+    await userEvent.click(screen.getByTestId('modal-confirm'))
+    expect(screen.queryByTestId('modal')).not.toBeInTheDocument()
+  })
+
+  it('backdrop click closes modal', async () => {
+    render(<AccessibleModalSection />)
+    await userEvent.click(screen.getByTestId('modal-trigger'))
+    // Click the backdrop (the element directly behind the modal)
+    const backdrop = document.querySelector('.fixed.inset-0') as HTMLElement
+    await userEvent.click(backdrop)
+    expect(screen.queryByTestId('modal')).not.toBeInTheDocument()
+  })
+
+  it('focus returns to trigger after modal closes', async () => {
+    render(<AccessibleModalSection />)
+    await userEvent.click(screen.getByTestId('modal-trigger'))
+    await userEvent.click(screen.getByTestId('modal-cancel'))
+    expect(screen.getByTestId('modal-trigger')).toHaveFocus()
+  })
 })
