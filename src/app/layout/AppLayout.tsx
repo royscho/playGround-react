@@ -12,7 +12,7 @@ export function AppLayout() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <div className="flex h-screen bg-[var(--color-bg)]">
+      <div className="flex h-screen bg-bg">
         <Sidebar isOpen={sidebarOpen} />
         <div className="flex flex-1 flex-col overflow-hidden">
           <TopBar />
