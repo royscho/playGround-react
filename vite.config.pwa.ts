@@ -3,6 +3,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 import baseConfig from './vite.config'
 
 export default mergeConfig(baseConfig, defineConfig({
+  define: {
+    'import.meta.env.VITE_PWA': JSON.stringify('true'),
+  },
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
