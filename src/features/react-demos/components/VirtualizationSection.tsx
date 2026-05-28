@@ -11,7 +11,7 @@ function NaiveList() {
       className="h-72 overflow-auto rounded border border-gray-200 dark:border-gray-700"
       data-testid="naive-list"
     >
-      {NAIVE_ITEMS.map(item => (
+      {NAIVE_ITEMS.map((item) => (
         <div
           key={item}
           className="border-b border-gray-100 px-3 text-sm dark:border-gray-800 dark:text-gray-300"
@@ -41,7 +41,7 @@ function VirtualList() {
       data-testid="virtual-list"
     >
       <div style={{ height: virtualizer.getTotalSize(), width: '100%', position: 'relative' }}>
-        {virtualizer.getVirtualItems().map(row => (
+        {virtualizer.getVirtualItems().map((row) => (
           <div
             key={row.key}
             style={{
@@ -67,15 +67,18 @@ export function VirtualizationSection() {
     <section>
       <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">Virtualization</h2>
       <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
-        Only render what's visible. Left: 2,000 real DOM nodes. Right: 10,000 items, ~15 DOM nodes at a time.
+        Only render what's visible. Left: 2,000 real DOM nodes. Right: 10,000 items, ~15 DOM nodes
+        at a time.
       </p>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div data-testid="naive-panel">
           <div className="mb-2 flex items-center justify-between">
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Naive — all in DOM</p>
+            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Naive — all in DOM
+            </p>
             <span
-              className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-700 dark:bg-red-900/30 dark:text-red-400"
+              className="whitespace-nowrap rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-700 dark:bg-red-900/30 dark:text-red-400"
               data-testid="naive-count"
             >
               2,000 DOM nodes
@@ -86,9 +89,11 @@ export function VirtualizationSection() {
 
         <div data-testid="virtual-panel">
           <div className="mb-2 flex items-center justify-between">
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Virtual — only visible rows</p>
+            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Virtual — only visible rows
+            </p>
             <span
-              className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400"
+              className="whitespace-nowrap rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400"
               data-testid="virtual-count"
             >
               ~15 DOM nodes
