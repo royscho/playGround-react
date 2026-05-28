@@ -17,7 +17,7 @@ describe('BottomNav', () => {
     renderBottomNav()
     expect(screen.getByRole('link', { name: /dashboard/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /analytics/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /react demos/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /demos/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /settings/i })).toBeInTheDocument()
   })
 

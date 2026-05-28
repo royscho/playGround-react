@@ -23,7 +23,7 @@ export function BottomNav({ onMoreClick }: BottomNavProps) {
           }
         >
           <span className="text-lg leading-none">{item.icon}</span>
-          <span>{item.label}</span>
+          <span>{item.shortLabel ?? item.label}</span>
         </NavLink>
       ))}
       <button

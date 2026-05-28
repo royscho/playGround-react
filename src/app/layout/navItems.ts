@@ -1,6 +1,7 @@
 export interface NavItem {
   to: string
   label: string
+  shortLabel?: string
   icon: string
 }
 
@@ -10,7 +11,7 @@ export const navItems: NavItem[] = [
   { to: '/analytics', label: 'Analytics', icon: '📈' },
   { to: '/settings', label: 'Settings', icon: '⚙️' },
   { to: '/css-examples', label: 'CSS Examples', icon: '🎨' },
-  { to: '/react-demos', label: 'React Demos', icon: '⚛️' },
+  { to: '/react-demos', label: 'React Demos', shortLabel: 'Demos', icon: '⚛️' },
   { to: '/chat', label: 'Chat Demo', icon: '💬' },
   { to: '/performance', label: 'Performance', icon: '⚡' },
   { to: '/accessibility', label: 'Accessibility', icon: '♿' },
