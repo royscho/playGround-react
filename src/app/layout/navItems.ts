@@ -16,17 +16,13 @@ export const navItems: NavItem[] = [
   { to: '/accessibility', label: 'Accessibility', icon: '♿' },
 ]
 
-export const primaryNavItems: NavItem[] = [
-  navItems[0], // Dashboard
-  navItems[2], // Analytics
-  navItems[5], // React Demos
-  navItems[3], // Settings
-]
+const PRIMARY_ROUTES = ['/dashboard', '/analytics', '/react-demos', '/settings']
+const MORE_ROUTES = ['/users', '/css-examples', '/chat', '/performance', '/accessibility']
 
-export const moreNavItems: NavItem[] = [
-  navItems[1], // Users
-  navItems[4], // CSS Examples
-  navItems[6], // Chat Demo
-  navItems[7], // Performance
-  navItems[8], // Accessibility
-]
+export const primaryNavItems: NavItem[] = PRIMARY_ROUTES.map(
+  (to) => navItems.find((item) => item.to === to)!
+)
+
+export const moreNavItems: NavItem[] = MORE_ROUTES.map(
+  (to) => navItems.find((item) => item.to === to)!
+)
