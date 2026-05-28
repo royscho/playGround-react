@@ -1,17 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { clsx } from 'clsx'
-
-const navItems = [
-  { to: '/dashboard', label: 'Dashboard', icon: '📊' },
-  { to: '/users', label: 'Users', icon: '👥' },
-  { to: '/analytics', label: 'Analytics', icon: '📈' },
-  { to: '/settings', label: 'Settings', icon: '⚙️' },
-  { to: '/css-examples', label: 'CSS Examples', icon: '🎨' },
-  { to: '/react-demos', label: 'React Demos', icon: '⚛️' },
-  { to: '/chat', label: 'Chat Demo', icon: '💬' },
-  { to: '/performance', label: 'Performance', icon: '⚡' },
-  { to: '/accessibility', label: 'Accessibility', icon: '♿' },
-]
+import { navItems } from './navItems'
 
 interface SidebarProps {
   isOpen: boolean
@@ -21,7 +10,7 @@ export function Sidebar({ isOpen }: SidebarProps) {
   return (
     <aside
       className={clsx(
-        'flex h-screen flex-col border-r border-gray-200 bg-white transition-all dark:border-gray-700 dark:bg-gray-900',
+        'hidden h-screen flex-col border-r border-gray-200 bg-white transition-all dark:border-gray-700 dark:bg-gray-900 md:flex',
         isOpen ? 'w-56' : 'w-16'
       )}
     >
