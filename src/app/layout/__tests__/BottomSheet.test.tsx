@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { BottomSheet } from '../BottomSheet'
-import { vi } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 
 function renderSheet(isOpen: boolean, onClose = vi.fn()) {
   return render(
