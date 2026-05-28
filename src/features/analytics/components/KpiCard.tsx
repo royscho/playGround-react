@@ -22,7 +22,7 @@ export function KpiCard({ metric }: KpiCardProps) {
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
-      <p className="mt-1 text-3xl font-semibold text-gray-900 dark:text-white">{formattedValue}</p>
+      <p className="mt-1 truncate text-2xl font-semibold text-gray-900 sm:text-3xl dark:text-white">{formattedValue}</p>
       <p
         className={clsx('mt-1 text-sm font-medium', {
           'text-green-600': positive,
