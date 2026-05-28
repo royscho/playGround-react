@@ -35,6 +35,7 @@ src/
     KpiCard.stories.tsx
   app/layout/__stories__/
     BottomNav.stories.tsx
+  features/notifications/components/__stories__/
     NotificationBadge.stories.tsx
 ```
 
