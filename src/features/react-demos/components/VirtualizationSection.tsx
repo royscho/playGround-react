@@ -75,7 +75,7 @@ export function VirtualizationSection() {
           <div className="mb-2 flex items-center justify-between">
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Naive — all in DOM</p>
             <span
-              className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-700 dark:bg-red-900/30 dark:text-red-400"
+              className="whitespace-nowrap rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-700 dark:bg-red-900/30 dark:text-red-400"
               data-testid="naive-count"
             >
               2,000 DOM nodes
@@ -88,7 +88,7 @@ export function VirtualizationSection() {
           <div className="mb-2 flex items-center justify-between">
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Virtual — only visible rows</p>
             <span
-              className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400"
+              className="whitespace-nowrap rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400"
               data-testid="virtual-count"
             >
               ~15 DOM nodes
