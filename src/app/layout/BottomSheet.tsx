@@ -20,14 +20,14 @@ export function BottomSheet({ isOpen, onClose }: BottomSheetProps) {
       />
       <nav
         className={clsx(
-          'fixed bottom-16 left-0 right-0 z-50 rounded-t-xl border-t border-gray-200 bg-white transition-transform duration-300 dark:border-gray-700 dark:bg-gray-900 md:hidden',
+          'fixed bottom-0 left-0 right-0 z-50 rounded-t-xl border-t border-gray-200 bg-white transition-transform duration-300 dark:border-gray-700 dark:bg-gray-900 md:hidden',
           isOpen ? 'translate-y-0' : 'translate-y-full'
         )}
       >
         <div className="flex justify-center py-2">
           <div className="h-1 w-10 rounded-full bg-gray-300 dark:bg-gray-600" />
         </div>
-        <div className="p-4">
+        <div className="p-4 pb-20">
           <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
             More
           </p>

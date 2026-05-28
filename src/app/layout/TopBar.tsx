@@ -20,15 +20,16 @@ export function TopBar() {
   return (
     <header className="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 dark:border-gray-700 dark:bg-gray-900">
       <div className="flex items-center gap-3">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={toggleSidebar}
-          aria-label="Toggle sidebar"
-          className="hidden md:inline-flex"
-        >
-          ☰
-        </Button>
+        <div className="hidden md:block">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleSidebar}
+            aria-label="Toggle sidebar"
+          >
+            ☰
+          </Button>
+        </div>
         <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 md:hidden">
           {pageTitle}
         </span>
