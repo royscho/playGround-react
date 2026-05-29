@@ -7,11 +7,9 @@ const meta: Meta<typeof BottomNav> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <MemoryRouter initialEntries={['/dashboard']}>
-        <div className="relative h-24">
-          <Story />
-        </div>
-      </MemoryRouter>
+      <div className="relative h-24">
+        <Story />
+      </div>
     ),
   ],
   args: { onMoreClick: () => {} },
@@ -20,15 +18,21 @@ export default meta
 
 type Story = StoryObj<typeof BottomNav>
 
-export const Default: Story = {}
+export const Default: Story = {
+  decorators: [
+    (Story) => (
+      <MemoryRouter initialEntries={['/dashboard']}>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
+}
 
 export const AnalyticsActive: Story = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={['/analytics']}>
-        <div className="relative h-24">
-          <Story />
-        </div>
+        <Story />
       </MemoryRouter>
     ),
   ],
@@ -38,9 +42,7 @@ export const SettingsActive: Story = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={['/settings']}>
-        <div className="relative h-24">
-          <Story />
-        </div>
+        <Story />
       </MemoryRouter>
     ),
   ],
