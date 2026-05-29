@@ -5,6 +5,9 @@ import { BottomNav } from '../BottomNav'
 const meta: Meta<typeof BottomNav> = {
   component: BottomNav,
   tags: ['autodocs'],
+  parameters: {
+    viewport: { defaultViewport: 'mobile1' },
+  },
   decorators: [
     (Story) => (
       <div className="relative h-24">
