@@ -8,10 +8,11 @@ describe('ReactDemosPage', () => {
     expect(screen.getByRole('heading', { name: /react demos/i })).toBeInTheDocument()
   })
 
-  it('renders all three section headings', () => {
+  it('renders all four section headings', () => {
     render(<ReactDemosPage />)
     expect(screen.getByRole('heading', { name: /usetransition/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /virtualization/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /compound components/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /tanstack table/i })).toBeInTheDocument()
   })
 })
