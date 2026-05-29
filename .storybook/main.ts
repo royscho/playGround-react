@@ -6,10 +6,7 @@ const config: StorybookConfig = {
     '@storybook/addon-docs',
     '@storybook/addon-a11y',
   ],
-  framework: {
-    name: '@storybook/react-vite',
-    options: {},
-  },
+  framework: '@storybook/react-vite',
 }
 
 export default config
