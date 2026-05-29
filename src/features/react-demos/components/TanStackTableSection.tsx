@@ -112,6 +112,7 @@ export function TanStackTableSection() {
   const table = useReactTable({
     data: EMPLOYEES,
     columns,
+    getRowId: (row) => row.id,
     state: { sorting, globalFilter, columnVisibility, rowSelection },
     onSortingChange: setSorting,
     onGlobalFilterChange: setGlobalFilter,
