@@ -2,6 +2,7 @@ import { UseTransitionSection } from './UseTransitionSection'
 import { VirtualizationSection } from './VirtualizationSection'
 import { CompoundComponentsSection } from './CompoundComponentsSection'
 import { TanStackTableSection } from './TanStackTableSection'
+import { ModalSection } from './ModalSection'
 
 export default function ReactDemosPage() {
   return (
@@ -11,6 +12,7 @@ export default function ReactDemosPage() {
       <VirtualizationSection />
       <CompoundComponentsSection />
       <TanStackTableSection />
+      <ModalSection />
     </div>
   )
 }
