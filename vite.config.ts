@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config'
+import { defineConfig, defaultExclude } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
@@ -17,6 +17,7 @@ export default defineConfig({
       reporter: ['text', 'html'],
       exclude: ['src/mocks/**', 'src/main.tsx'],
     },
+    exclude: [...defaultExclude, 'playwright/**'],
     projects: [
       {
         extends: true,
