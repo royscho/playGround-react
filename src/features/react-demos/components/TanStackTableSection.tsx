@@ -228,7 +228,7 @@ export function TanStackTableSection() {
       </div>
 
       <div className="mt-3 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
-        <span data-testid="selected-count" className="min-w-[6rem]">
+        <span data-testid="selected-count" className="min-w-24">
           {selectedCount > 0 ? `${selectedCount} selected` : ''}
         </span>
         <div className="flex items-center gap-3">
