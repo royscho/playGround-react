@@ -36,6 +36,7 @@ test.describe('Auth flows', () => {
     await page.locator('#email').fill('admin@example.com')
     await page.locator('#password').fill('password')
     await page.getByRole('button', { name: 'Sign in' }).click()
+    await page.waitForURL(/\/dashboard/)
     await expect(page.locator('h1')).toContainText('Dashboard')
   })
 
@@ -54,6 +55,7 @@ test.describe('Auth flows', () => {
     await page.locator('#email').fill('admin@example.com')
     await page.locator('#password').fill('password')
     await page.getByRole('button', { name: 'Sign in' }).click()
+    await page.waitForURL(/\/dashboard/)
     await expect(page.locator('h1')).toContainText('Dashboard')
     await page.getByRole('button', { name: 'Logout' }).click()
     await expect(page).toHaveURL(/\/login/)
