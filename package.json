@@ -16,7 +16,9 @@
     "cy:run": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:5173/playGround-react/ cy:run",
     "dev:pwa": "vite --config vite.config.pwa.ts",
-    "build:pwa": "tsc && vite build --config vite.config.pwa.ts && cp dist/index.html dist/404.html"
+    "build:pwa": "tsc && vite build --config vite.config.pwa.ts && cp dist/index.html dist/404.html",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -61,7 +63,17 @@
     "typescript-eslint": "^8.59.3",
     "vite": "^8.0.13",
     "vite-plugin-pwa": "^1.3.0",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.6",
+    "storybook": "^10.4.1",
+    "@storybook/react-vite": "^10.4.1",
+    "@chromatic-com/storybook": "^5.2.1",
+    "@storybook/addon-vitest": "^10.4.1",
+    "@storybook/addon-a11y": "^10.4.1",
+    "@storybook/addon-docs": "^10.4.1",
+    "@storybook/addon-mcp": "^0.6.0",
+    "eslint-plugin-storybook": "^10.4.1",
+    "playwright": "^1.60.0",
+    "@vitest/browser-playwright": "^4.1.6"
   },
   "msw": {
     "workerDirectory": [

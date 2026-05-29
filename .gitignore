@@ -4,3 +4,6 @@ dist
 .env.local
 coverage
 .superpowers/
+
+*storybook.log
+storybook-static
