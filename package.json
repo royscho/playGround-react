@@ -14,6 +14,7 @@
     "format:check": "prettier --check src",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "pw:run": "playwright test",
     "e2e": "start-server-and-test dev http://localhost:5173/playGround-react/ cy:run",
     "dev:pwa": "vite --config vite.config.pwa.ts",
     "build:pwa": "tsc && vite build --config vite.config.pwa.ts && cp dist/index.html dist/404.html",
