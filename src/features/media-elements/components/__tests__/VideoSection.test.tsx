@@ -28,9 +28,9 @@ describe('VideoSection', () => {
     expect(screen.getByTestId('video-controls')).toHaveAttribute('controls')
   })
 
-  it('autoplay video has muted attribute', () => {
+  it('autoplay video has muted property', () => {
     render(<VideoSection />)
-    expect(screen.getByTestId('video-autoplay')).toHaveAttribute('muted')
+    expect((screen.getByTestId('video-autoplay') as HTMLVideoElement).muted).toBe(true)
   })
 
   it('poster video has poster attribute', () => {
