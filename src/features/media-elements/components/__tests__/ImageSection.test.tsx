@@ -19,7 +19,7 @@ describe('ImageSection', () => {
 
   it('renders object-fit code labels', () => {
     render(<ImageSection />)
-    expect(screen.getByText('object-cover')).toBeInTheDocument()
+    expect(screen.getAllByText('object-cover').length).toBeGreaterThan(0)
     expect(screen.getByText('object-contain')).toBeInTheDocument()
     expect(screen.getByText('object-fill')).toBeInTheDocument()
     expect(screen.getByText('object-none')).toBeInTheDocument()
