@@ -55,3 +55,9 @@ src/
 ## CI / Deployment
 
 GitHub Actions (`.github/workflows/ci.yml`): typecheck → lint → playwright install → test → build → upload artifact. Deploys to GitHub Pages on push to `main`.
+
+## Working Style
+
+- Don't ask clarifying questions mid-task — make reasonable assumptions and proceed
+- If something is truly ambiguous, note your assumption in a comment and continue
+- Complete the full plan before stopping

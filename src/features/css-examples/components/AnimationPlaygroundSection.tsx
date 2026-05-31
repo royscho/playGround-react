@@ -16,7 +16,7 @@ function buildCodeSnippet(
   name: AnimationName,
   duration: number,
   delay: number,
-  iterationCount: number | 'infinite',
+  iterationCount: number | 'infinite'
 ): string {
   const iterStr = iterationCount === 'infinite' ? `'infinite'` : String(iterationCount)
   return `<div
@@ -38,7 +38,13 @@ function renderDemo(name: AnimationName, replayKey: number, style: CSSProperties
         </div>
       )
     case 'bounce':
-      return <div key={replayKey} className="animate-bounce h-6 w-6 rounded-full bg-pink-500" style={style} />
+      return (
+        <div
+          key={replayKey}
+          className="animate-bounce h-6 w-6 rounded-full bg-pink-500"
+          style={style}
+        />
+      )
     case 'pulse':
       return (
         <div
@@ -77,9 +83,12 @@ export function AnimationPlaygroundSection() {
 
   return (
     <section>
-      <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">Animation Playground</h2>
+      <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+        Animation Playground
+      </h2>
       <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-        Customize Tailwind animations with inline styles. Inline styles override the animation defaults.
+        Customize Tailwind animations with inline styles. Inline styles override the animation
+        defaults.
       </p>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -94,10 +103,10 @@ export function AnimationPlaygroundSection() {
             <select
               id="animation-select"
               value={selectedAnimation}
-              onChange={e => setSelectedAnimation(e.target.value as AnimationName)}
+              onChange={(e) => setSelectedAnimation(e.target.value as AnimationName)}
               className="w-full rounded border border-gray-300 px-3 py-1.5 text-sm dark:border-gray-600 dark:bg-gray-800 dark:text-white"
             >
-              {ANIMATIONS.map(a => (
+              {ANIMATIONS.map((a) => (
                 <option key={a.value} value={a.value}>
                   {a.label}
                 </option>
@@ -119,7 +128,7 @@ export function AnimationPlaygroundSection() {
               max="5"
               step="0.1"
               value={duration}
-              onChange={e => setDuration(Number(e.target.value))}
+              onChange={(e) => setDuration(Number(e.target.value))}
               className="w-full"
             />
           </div>
@@ -138,7 +147,7 @@ export function AnimationPlaygroundSection() {
               max="2"
               step="0.1"
               value={delay}
-              onChange={e => setDelay(Number(e.target.value))}
+              onChange={(e) => setDelay(Number(e.target.value))}
               className="w-full"
             />
           </div>
@@ -153,13 +162,13 @@ export function AnimationPlaygroundSection() {
             <select
               id="iteration-select"
               value={String(iterationCount)}
-              onChange={e => {
+              onChange={(e) => {
                 const val = e.target.value
                 setIterationCount(val === 'infinite' ? 'infinite' : Number(val))
               }}
               className="w-full rounded border border-gray-300 px-3 py-1.5 text-sm dark:border-gray-600 dark:bg-gray-800 dark:text-white"
             >
-              {ITERATION_OPTIONS.map(o => (
+              {ITERATION_OPTIONS.map((o) => (
                 <option key={o} value={o}>
                   {o}
                 </option>
@@ -168,7 +177,7 @@ export function AnimationPlaygroundSection() {
           </div>
 
           <button
-            onClick={() => setReplayKey(k => k + 1)}
+            onClick={() => setReplayKey((k) => k + 1)}
             className="rounded bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
           >
             Restart
