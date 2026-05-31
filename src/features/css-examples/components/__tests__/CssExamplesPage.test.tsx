@@ -8,11 +8,12 @@ describe('CssExamplesPage', () => {
     expect(screen.getByRole('heading', { name: /css3 examples/i })).toBeInTheDocument()
   })
 
-  it('renders all four section headings', () => {
+  it('renders all five section headings', () => {
     render(<CssExamplesPage />)
     expect(screen.getByRole('heading', { name: /visual effects/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /transitions & animations/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /flexbox & grid/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /custom properties/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /css animations/i })).toBeInTheDocument()
   })
 })

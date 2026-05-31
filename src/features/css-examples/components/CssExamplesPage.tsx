@@ -2,6 +2,7 @@ import { VisualEffectsSection } from './VisualEffectsSection'
 import { TransitionsSection } from './TransitionsSection'
 import { FlexboxGridSection } from './FlexboxGridSection'
 import { CustomPropertiesSection } from './CustomPropertiesSection'
+import { AnimationsSection } from './AnimationsSection'
 
 export default function CssExamplesPage() {
   return (
@@ -11,6 +12,7 @@ export default function CssExamplesPage() {
       <TransitionsSection />
       <FlexboxGridSection />
       <CustomPropertiesSection />
+      <AnimationsSection />
     </div>
   )
 }
