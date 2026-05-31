@@ -15,10 +15,11 @@ export const navItems: NavItem[] = [
   { to: '/chat', label: 'Chat Demo', icon: '💬' },
   { to: '/performance', label: 'Performance', icon: '⚡' },
   { to: '/accessibility', label: 'Accessibility', icon: '♿' },
+  { to: '/media-elements', label: 'Media Elements', icon: '🎬' },
 ]
 
 const PRIMARY_ROUTES = ['/dashboard', '/analytics', '/react-demos', '/settings']
-const MORE_ROUTES = ['/users', '/css-examples', '/chat', '/performance', '/accessibility']
+const MORE_ROUTES = ['/users', '/css-examples', '/chat', '/performance', '/accessibility', '/media-elements']
 
 export const primaryNavItems: NavItem[] = PRIMARY_ROUTES.map(
   (to) => navItems.find((item) => item.to === to)!

@@ -15,6 +15,7 @@ const ReactDemosPage = lazy(() => import('../features/react-demos/components/Rea
 const ChatPage = lazy(() => import('../features/chat/components/ChatPage'))
 const PerformancePage = lazy(() => import('../features/performance/components/PerformancePage'))
 const AccessibilityPage = lazy(() => import('../features/accessibility/components/AccessibilityPage'))
+const MediaElementsPage = lazy(() => import('../features/media-elements/components/MediaElementsPage'))
 
 const PageLoader = () => <Skeleton lines={4} className="h-8" />
 
@@ -118,6 +119,16 @@ export function AppRouter() {
                 <ErrorBoundary>
                   <Suspense fallback={<PageLoader />}>
                     <AccessibilityPage />
+                  </Suspense>
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="/media-elements"
+              element={
+                <ErrorBoundary>
+                  <Suspense fallback={<PageLoader />}>
+                    <MediaElementsPage />
                   </Suspense>
                 </ErrorBoundary>
               }
