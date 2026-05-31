@@ -40,6 +40,6 @@ describe('ImageSection', () => {
 
   it('renders aspect-ratio demo', () => {
     render(<ImageSection />)
-    expect(screen.getByText(/aspect-\[16\/9\]/)).toBeInTheDocument()
+    expect(screen.getByText(/aspect-video/)).toBeInTheDocument()
   })
 })

@@ -1,3 +1,7 @@
+import type { ReactNode } from 'react'
+
+const ACCENT = '#f59e0b'
+
 const OBJECT_FIT_CARDS = [
   { label: 'Cover', cls: 'object-cover' },
   { label: 'Contain', cls: 'object-contain' },
@@ -10,72 +14,101 @@ const IMG1 = 'https://picsum.photos/seed/portrait1/200/400'
 const IMG2 = 'https://picsum.photos/seed/media2/400/300'
 const IMG3 = 'https://picsum.photos/seed/media3/800/450'
 
+function CodePill({ children }: { children: ReactNode }) {
+  return (
+    <code
+      style={{
+        fontFamily: "'JetBrains Mono', monospace",
+        color: ACCENT,
+        backgroundColor: `${ACCENT}22`,
+        padding: '2px 8px',
+        borderRadius: '4px',
+        fontSize: '11px',
+        display: 'inline-block',
+      }}
+    >
+      {children}
+    </code>
+  )
+}
+
+function SubLabel({ children }: { children: ReactNode }) {
+  return (
+    <p
+      className="mb-3 text-[10px] uppercase tracking-[0.2em] text-gray-400 dark:text-white/30"
+      style={{ fontFamily: "'JetBrains Mono', monospace" }}
+    >
+      {children}
+    </p>
+  )
+}
+
 export function ImageSection() {
   return (
-    <section>
-      <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">Images</h2>
-      <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-        HTML <code>&lt;img&gt;</code> attributes for loading strategy and visual fit.
-      </p>
+    <section className="rounded-2xl border border-gray-200/80 bg-gray-50 p-6 dark:border-white/[5%] dark:bg-white/[2%] md:p-8">
+      <div className="mb-8 border-l-2 pl-4" style={{ borderColor: ACCENT }}>
+        <p
+          className="mb-1 text-[10px] uppercase tracking-[0.25em]"
+          style={{ fontFamily: "'JetBrains Mono', monospace", color: ACCENT }}
+        >
+          01 / &lt;img&gt;
+        </p>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Images</h2>
+        <p className="mt-1 text-sm text-gray-500 dark:text-white/40">
+          Loading strategy and visual fit attributes.
+        </p>
+      </div>
 
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-        object-fit
-      </h3>
-      <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-5">
+      <SubLabel>object-fit</SubLabel>
+      <div className="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-5">
         {OBJECT_FIT_CARDS.map(({ label, cls }) => (
-          <div key={cls} className="flex flex-col items-center gap-2">
-            <div className="h-30 w-full overflow-hidden rounded border border-gray-200 dark:border-gray-700">
+          <div
+            key={cls}
+            className="flex flex-col gap-2 rounded-xl border border-gray-200 bg-white p-3 dark:border-white/[7%] dark:bg-white/[3%]"
+          >
+            <div className="h-36 overflow-hidden rounded-lg bg-gray-100 dark:bg-white/5">
               <img src={IMG1} alt={`${label} demo`} className={`h-full w-full ${cls}`} />
             </div>
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</p>
-            <code className="text-xs text-indigo-600 dark:text-indigo-400">{cls}</code>
+            <p className="text-sm font-semibold text-gray-700 dark:text-white/80">{label}</p>
+            <CodePill>{cls}</CodePill>
           </div>
         ))}
       </div>
 
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-        loading attribute
-      </h3>
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+      <SubLabel>loading attribute</SubLabel>
+      <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/[7%] dark:bg-white/[3%]">
           <img
             src={IMG1}
             alt="lazy loading demo"
             loading="lazy"
-            className="mb-3 h-32 w-full rounded object-cover"
+            className="mb-3 h-32 w-full rounded-lg object-cover"
           />
-          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Lazy</p>
-          <code className="text-xs text-indigo-600 dark:text-indigo-400">loading="lazy"</code>
-          <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-            Browser defers load until near viewport
-          </p>
+          <p className="mb-1 text-sm font-semibold text-gray-700 dark:text-white/80">Lazy</p>
+          <CodePill>loading="lazy"</CodePill>
+          <p className="mt-2 text-xs text-gray-400 dark:text-white/30">Deferred until near viewport</p>
         </div>
-        <div className="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+        <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/[7%] dark:bg-white/[3%]">
           <img
             src={IMG2}
             alt="eager loading demo"
             loading="eager"
-            className="mb-3 h-32 w-full rounded object-cover"
+            className="mb-3 h-32 w-full rounded-lg object-cover"
           />
-          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Eager</p>
-          <code className="text-xs text-indigo-600 dark:text-indigo-400">loading="eager"</code>
-          <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-            Browser loads immediately (default)
-          </p>
+          <p className="mb-1 text-sm font-semibold text-gray-700 dark:text-white/80">Eager</p>
+          <CodePill>loading="eager"</CodePill>
+          <p className="mt-2 text-xs text-gray-400 dark:text-white/30">Loads immediately (default)</p>
         </div>
       </div>
 
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-        aspect-ratio
-      </h3>
-      <div className="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
-        <div className="aspect-video w-full overflow-hidden rounded">
+      <SubLabel>aspect-ratio</SubLabel>
+      <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/[7%] dark:bg-white/[3%]">
+        <div className="aspect-video w-full overflow-hidden rounded-lg">
           <img src={IMG3} alt="aspect-ratio demo" className="h-full w-full object-cover" />
         </div>
-        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          Container uses <code className="text-indigo-600 dark:text-indigo-400">aspect-[16/9]</code>{' '}
-          with <code className="text-indigo-600 dark:text-indigo-400">object-cover</code> on the
-          image.
+        <p className="mt-3 text-xs text-gray-400 dark:text-white/30">
+          Container uses <CodePill>aspect-video</CodePill> with{' '}
+          <CodePill>object-cover</CodePill> on the image.
         </p>
       </div>
     </section>
