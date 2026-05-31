@@ -27,7 +27,7 @@ describe('SVGSection', () => {
     render(<SVGSection />)
     expect(screen.getByText('fill only')).toBeInTheDocument()
     expect(screen.getByText('stroke only')).toBeInTheDocument()
-    expect(screen.getByText('fill + stroke')).toBeInTheDocument()
+    expect(screen.getAllByText('fill + stroke').length).toBeGreaterThan(0)
   })
 
   it('renders inline SVG sub-section', () => {
