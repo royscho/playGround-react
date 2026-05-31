@@ -3,6 +3,7 @@ import { TransitionsSection } from './TransitionsSection'
 import { FlexboxGridSection } from './FlexboxGridSection'
 import { CustomPropertiesSection } from './CustomPropertiesSection'
 import { AnimationsSection } from './AnimationsSection'
+import { AnimationPlaygroundSection } from './AnimationPlaygroundSection'
 
 export default function CssExamplesPage() {
   return (
@@ -13,6 +14,7 @@ export default function CssExamplesPage() {
       <FlexboxGridSection />
       <CustomPropertiesSection />
       <AnimationsSection />
+      <AnimationPlaygroundSection />
     </div>
   )
 }
