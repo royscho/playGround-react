@@ -46,7 +46,7 @@ export function BottomSheet({ isOpen, onClose }: BottomSheetProps) {
                   )
                 }
               >
-                <span>{item.icon}</span>
+                <item.icon className="h-4 w-4 shrink-0" />
                 <span>{item.label}</span>
               </NavLink>
             ))}

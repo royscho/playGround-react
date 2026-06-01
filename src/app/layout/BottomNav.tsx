@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { clsx } from 'clsx'
+import { MoreHorizontal } from 'lucide-react'
 import { primaryNavItems } from './navItems'
 
 interface BottomNavProps {
@@ -22,7 +23,7 @@ export function BottomNav({ onMoreClick }: BottomNavProps) {
             )
           }
         >
-          <span className="text-lg leading-none">{item.icon}</span>
+          <item.icon className="h-5 w-5" />
           <span>{item.shortLabel ?? item.label}</span>
         </NavLink>
       ))}
@@ -31,7 +32,7 @@ export function BottomNav({ onMoreClick }: BottomNavProps) {
         aria-label="More navigation items"
         className="flex flex-col items-center justify-center gap-0.5 px-3 py-2 text-xs font-medium text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:rounded"
       >
-        <span className="text-lg leading-none">•••</span>
+        <MoreHorizontal className="h-5 w-5" />
         <span>More</span>
       </button>
     </nav>
