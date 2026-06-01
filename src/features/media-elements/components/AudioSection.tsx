@@ -12,15 +12,8 @@ const PRELOAD_OPTIONS: { value: 'none' | 'metadata' | 'auto'; description: strin
 function CodePill({ children }: { children: ReactNode }) {
   return (
     <code
-      style={{
-        fontFamily: "'JetBrains Mono', monospace",
-        color: ACCENT,
-        backgroundColor: `${ACCENT}22`,
-        padding: '2px 8px',
-        borderRadius: '4px',
-        fontSize: '11px',
-        display: 'inline-block',
-      }}
+      className="font-code inline-block rounded px-2 py-0.5 text-[11px]"
+      style={{ color: ACCENT, backgroundColor: `${ACCENT}22` }}
     >
       {children}
     </code>
@@ -29,10 +22,7 @@ function CodePill({ children }: { children: ReactNode }) {
 
 function SubLabel({ children }: { children: ReactNode }) {
   return (
-    <p
-      className="mb-3 text-[10px] uppercase tracking-[0.2em] text-gray-400 dark:text-white/30"
-      style={{ fontFamily: "'JetBrains Mono', monospace" }}
-    >
+    <p className="font-code mb-3 text-[10px] uppercase tracking-[0.2em] text-gray-400 dark:text-white/30">
       {children}
     </p>
   )
@@ -43,12 +33,17 @@ export function AudioSection() {
     <section className="rounded-2xl border border-gray-200/80 bg-gray-50 p-6 dark:border-white/[5%] dark:bg-white/[2%] md:p-8">
       <div className="mb-8 border-l-2 pl-4" style={{ borderColor: ACCENT }}>
         <p
-          className="mb-1 text-[10px] uppercase tracking-[0.25em]"
-          style={{ fontFamily: "'JetBrains Mono', monospace", color: ACCENT }}
+          className="font-code mb-1 text-[10px] uppercase tracking-[0.25em]"
+          style={{ color: ACCENT }}
         >
           03 / &lt;audio&gt;
         </p>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>Audio</h2>
+        <h2
+          className="text-2xl font-bold text-gray-900 dark:text-white"
+          style={{ fontFamily: "'Syne', sans-serif" }}
+        >
+          Audio
+        </h2>
         <p className="mt-1 text-sm text-gray-500 dark:text-white/40">
           Controls, looping, and preload strategy attributes.
         </p>

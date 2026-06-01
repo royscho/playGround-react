@@ -10,8 +10,7 @@ export default function MediaElementsPage() {
         <div className="mb-3 flex items-center gap-3">
           <div className="h-px w-12 bg-gray-300 dark:bg-white/20" />
           <span
-            className="text-[10px] uppercase tracking-[0.3em] text-gray-400 dark:text-white/40"
-            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+            className="font-code text-[10px] uppercase tracking-[0.3em] text-gray-400 dark:text-white/40"
           >
             HTML Reference
           </span>
