@@ -45,7 +45,7 @@ function SubLabel({ children }: { children: ReactNode }) {
 
 export function ImageSection() {
   return (
-    <section className="rounded-2xl border border-gray-200/80 bg-gray-50 p-6 dark:border-white/[5%] dark:bg-white/[2%] md:p-8">
+    <section className="rounded-2xl border border-gray-200/80 bg-gray-50 p-6 dark:border-white/5 dark:bg-white/2 md:p-8">
       <div className="mb-8 border-l-2 pl-4" style={{ borderColor: ACCENT }}>
         <p
           className="mb-1 text-[10px] uppercase tracking-[0.25em]"
@@ -53,7 +53,7 @@ export function ImageSection() {
         >
           01 / &lt;img&gt;
         </p>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Images</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>Images</h2>
         <p className="mt-1 text-sm text-gray-500 dark:text-white/40">
           Loading strategy and visual fit attributes.
         </p>
@@ -86,7 +86,9 @@ export function ImageSection() {
           />
           <p className="mb-1 text-sm font-semibold text-gray-700 dark:text-white/80">Lazy</p>
           <CodePill>loading="lazy"</CodePill>
-          <p className="mt-2 text-xs text-gray-400 dark:text-white/30">Deferred until near viewport</p>
+          <p className="mt-2 text-xs text-gray-400 dark:text-white/30">
+            Deferred until near viewport
+          </p>
         </div>
         <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/[7%] dark:bg-white/[3%]">
           <img
@@ -97,7 +99,9 @@ export function ImageSection() {
           />
           <p className="mb-1 text-sm font-semibold text-gray-700 dark:text-white/80">Eager</p>
           <CodePill>loading="eager"</CodePill>
-          <p className="mt-2 text-xs text-gray-400 dark:text-white/30">Loads immediately (default)</p>
+          <p className="mt-2 text-xs text-gray-400 dark:text-white/30">
+            Loads immediately (default)
+          </p>
         </div>
       </div>
 
@@ -107,8 +111,8 @@ export function ImageSection() {
           <img src={IMG3} alt="aspect-ratio demo" className="h-full w-full object-cover" />
         </div>
         <p className="mt-3 text-xs text-gray-400 dark:text-white/30">
-          Container uses <CodePill>aspect-video</CodePill> with{' '}
-          <CodePill>object-cover</CodePill> on the image.
+          Container uses <CodePill>aspect-video</CodePill> with <CodePill>object-cover</CodePill> on
+          the image.
         </p>
       </div>
     </section>

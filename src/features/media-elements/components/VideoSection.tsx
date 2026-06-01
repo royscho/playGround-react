@@ -32,7 +32,7 @@ export function VideoSection() {
         >
           02 / &lt;video&gt;
         </p>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Video</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>Video</h2>
         <p className="mt-1 text-sm text-gray-500 dark:text-white/40">
           Controls, autoplay, and poster image attributes.
         </p>

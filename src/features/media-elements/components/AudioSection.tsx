@@ -48,7 +48,7 @@ export function AudioSection() {
         >
           03 / &lt;audio&gt;
         </p>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Audio</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>Audio</h2>
         <p className="mt-1 text-sm text-gray-500 dark:text-white/40">
           Controls, looping, and preload strategy attributes.
         </p>

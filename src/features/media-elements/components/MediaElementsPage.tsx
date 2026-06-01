@@ -5,10 +5,7 @@ import { SVGSection } from './SVGSection'
 
 export default function MediaElementsPage() {
   return (
-    <div
-      className="min-h-screen bg-white px-6 py-10 dark:bg-[#080a12] md:px-12"
-      style={{ fontFamily: "'Syne', sans-serif" }}
-    >
+    <div className="min-h-screen bg-white px-6 py-10 dark:bg-[#080a12] md:px-12">
       <header className="mb-14">
         <div className="mb-3 flex items-center gap-3">
           <div className="h-px w-12 bg-gray-300 dark:bg-white/20" />
@@ -19,7 +16,10 @@ export default function MediaElementsPage() {
             HTML Reference
           </span>
         </div>
-        <h1 className="text-5xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white md:text-6xl">
+        <h1
+          className="text-5xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white md:text-6xl"
+          style={{ fontFamily: "'Syne', sans-serif" }}
+        >
           Media Elements
         </h1>
         <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-500 dark:text-white/40">

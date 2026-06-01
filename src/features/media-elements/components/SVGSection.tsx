@@ -41,7 +41,7 @@ export function SVGSection() {
         >
           04 / &lt;svg&gt;
         </p>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">SVG</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>SVG</h2>
         <p className="mt-1 text-sm text-gray-500 dark:text-white/40">
           Inline shapes, fill/stroke attributes, and inline SVG vs{' '}
           <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}>
