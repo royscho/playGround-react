@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { clsx } from 'clsx'
+import { Bell } from 'lucide-react'
 import { useNotificationsStore } from '../store/notificationsStore'
 import { Badge } from '../../../shared/components/Badge'
 import { Button } from '../../../shared/components/Button'
@@ -22,7 +23,7 @@ export function NotificationBadge({ onClick, isOpen }: NotificationBadgeProps) {
       aria-expanded={isOpen}
       className="relative rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
     >
-      🔔
+      <Bell className="h-5 w-5" />
       {unreadCount > 0 && (
         <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
           {unreadCount > 9 ? '9+' : unreadCount}

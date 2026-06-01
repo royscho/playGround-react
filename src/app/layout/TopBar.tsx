@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Menu, Sun, Moon } from 'lucide-react'
 import { useUiStore } from '../../store/uiStore'
 import { useAuthStore } from '../../features/auth/store/authStore'
 import { Button } from '../../shared/components/Button'
@@ -27,7 +28,7 @@ export function TopBar() {
             onClick={toggleSidebar}
             aria-label="Toggle sidebar"
           >
-            ☰
+            <Menu className="h-5 w-5" />
           </Button>
         </div>
         <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 md:hidden">
@@ -36,7 +37,7 @@ export function TopBar() {
       </div>
       <div className="relative flex items-center gap-3">
         <Button variant="ghost" size="sm" onClick={toggleDarkMode} aria-label="Toggle dark mode">
-          {darkMode ? '☀️' : '🌙'}
+          {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
         </Button>
         <NotificationBadge
           onClick={() => setNotifOpen((o) => !o)}
